@@ -61,10 +61,10 @@ public class Solutions {
             }
             else
             {
-                result = maxOnesCons;
+                result = result > maxOnesCons ? result : maxOnesCons;
                 maxOnesCons = 0;
             }
         }
-        return result;
+        return result > maxOnesCons ? result : maxOnesCons;
     }
 }
