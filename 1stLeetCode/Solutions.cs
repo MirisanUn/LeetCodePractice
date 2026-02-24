@@ -30,7 +30,7 @@ public class Solutions {
     public int[] Shuffle(int[] nums, int n) /// 2nd task
     {
         int newLength = 2 * n;
-        int[] result = new int[2*n];
+        int[] result = new int[newLength];
         for (int i = 0; i < newLength; i++)
         {
             if (i < n)
@@ -39,7 +39,7 @@ public class Solutions {
             }
             else
             {
-                result[i - ((n * 2 - 1) - i)] = nums[i];
+                result[i - ((newLength - 1) - i)] = nums[i];
             }
         }
         return result;
