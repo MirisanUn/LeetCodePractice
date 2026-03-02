@@ -1,4 +1,5 @@
 using _1stLeetCode;
+using System.Collections;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
 using System.Reflection;
@@ -92,6 +93,86 @@ public class Solutions : ICallSolution {
                 result[0] = num;
         }
         result[1] = result[0] + (arr_sum_expect - nums.Sum());
+        return result;
+    }
+    /// <summary>
+    /// Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it.
+    /// That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
+    /// Return the answer in an array.
+    /// </summary>
+    /// <param name="nums"></param>
+    /// <returns></returns>
+    public int[] SmallerNumbersThanCurrent(int[] nums)
+    {
+        int[] result = new int[nums.Length]; 
+        for (int i = 0; i < nums.Length; i++)
+        {
+            for (int j = 0; j < nums.Length; j++)
+            {
+                if (i != j && nums[i] > nums[j])
+                {
+                    result[i] += 1;
+                }
+            }
+        }
+        return result;
+    }
+    /// <summary>
+    /// Given an array nums of n integers where nums[i] is in the range [1, n], 
+    /// return an array of all the integers in the range [1, n] that do not appear in nums.
+    /// </summary>
+    /// <param name="nums"></param>
+    /// <returns></returns>
+    public IList<int> FindDisappearedNumbers(int[] nums)
+    {
+        IList<int> result = new List<int>();
+        HashSet<int> sequence = new HashSet<int>();
+        foreach (int num in nums)
+        {
+            sequence.Add(num);
+        }
+        for (int i = 1; i <= nums.Length; i++)
+        {
+            if (sequence.Add(i))
+            {
+                result.Add(i);
+            }
+        }
+        return result;
+    }
+    /// <summary>
+    /// You are given an integer array target and an integer n.
+    /// You have an empty stack with the two following operations:
+    /// "Push": pushes an integer to the top of the stack.
+    /// "Pop": removes the integer on the top of the stack.
+    /// Ex.1
+    /// Input: target = [1,3], n = 3
+    /// Output: ["Push", "Push", "Pop", "Push"]
+    /// Ex.2
+    /// Input: target = [1,2,3], n = 3
+    /// Output: ["Push","Push","Push"]
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public IList<string> BuildArray(int[] target, int n)
+    {
+        var set = new HashSet<int>(target);
+        int max = target.Max();
+        IList<string> result = new List<string>(max * 2);
+
+        for (int i = 1; i <= max; i++)
+        {
+            if (set.Contains(i))
+            {
+                result.Add("Push");
+            }
+            else
+            {
+                result.Add("Push");
+                result.Add("Pop");
+            }
+        }
         return result;
     }
 }

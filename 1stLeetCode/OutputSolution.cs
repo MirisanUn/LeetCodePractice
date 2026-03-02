@@ -15,5 +15,15 @@ namespace _1stLeetCode
             string output = $"[{string.Join(",", result)}]";
             Console.WriteLine(output);
         }
+        internal static void Output(IList<int> result)
+        {
+            string output = $"[{string.Join(",", result)}]";
+            Console.WriteLine(output);
+        }
+        internal static void Output(IList<string> result)
+        {
+            string output = $"[{string.Join(",", result)}]";
+            Console.WriteLine(output);
+        }
     }
 }

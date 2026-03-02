@@ -15,5 +15,8 @@ namespace _1stLeetCode
         /// <param name="nums"></param>
         /// <returns></returns>
         int[] FindErrorNums(int[] nums);
+        public int[] SmallerNumbersThanCurrent(int[] nums);
+        public IList<int> FindDisappearedNumbers(int[] nums);
+        public IList<string> BuildArray(int[] target, int n);
     }
 }
